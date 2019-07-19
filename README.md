@@ -8,7 +8,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SweeterSwift.svg?style=flat)](http://cocoapods.org/pods/SweeterSwift)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-"Extensions and syntactic sugar to enrich the Swift standard library, iOS frameworks, and [SwifterSwift](https://github.com/SwifterSwift/SwifterSwift).
+Extensions and syntactic sugar to enrich the Swift standard library, iOS frameworks, and [SwifterSwift](https://github.com/SwifterSwift/SwifterSwift).
 
 ## Installation
 
@@ -132,7 +132,7 @@ managedObjectContext.printAllObjects()
 Create a copy of the store for backup or for using later as initial setup:
 
 ```swift
-public func backupStore()
+managedObjectContext.backupStore()
 ```
 
 ### String
