@@ -11,7 +11,7 @@ import XCTest
 
 class StringTests: XCTestCase {
     func testUnCamelCase() {
-        XCTAssertEqual("winterIsComing".unCamelCase, "Winter Is Coming")
+        XCTAssertEqual("winterIsComing".unCamelCased, "Winter Is Coming")
         XCTAssertEqual("winterIsComing".camelToSnakeCased, "winter_is_coming")
     }
 }
