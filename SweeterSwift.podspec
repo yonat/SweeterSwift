@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SweeterSwift"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Extensions and syntactic sugar to enrich the Swift standard library, iOS frameworks, and SwifterSwift."
 
   s.homepage     = "https://github.com/yonat/SweeterSwift"
