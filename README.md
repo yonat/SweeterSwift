@@ -18,6 +18,14 @@ Extensions and syntactic sugar to enrich the Swift standard library, iOS framewo
 pod 'SweeterSwift'
 ```
 
+### Swift Package Manager:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/yonat/SweeterSwift", from: "1.0.2")
+]
+```
+
 ## Usage
 
 * [Auto Layout](#auto-layout)
