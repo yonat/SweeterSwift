@@ -7,7 +7,7 @@
 import CoreData
 
 extension NSManagedObjectContext {
-    /// SweeterSwift: Dump contents to console - for debugging
+    /// Sweeter: Dump contents to console - for debugging
     public func printAllObjects() {
         guard let entityDescriptions = persistentStoreCoordinator?.managedObjectModel.entities else { return }
         for entity in entityDescriptions {
@@ -20,7 +20,7 @@ extension NSManagedObjectContext {
         }
     }
 
-    /// SweeterSwift: Create a copy of the store for backup or for using later as initial setup
+    /// Sweeter: Create a copy of the store for backup or for using later as initial setup
     public func backupStore() {
         guard let persistentStoreCoordinator = persistentStoreCoordinator else { return }
         guard let sourceStore = persistentStoreCoordinator.persistentStores.first else { return }

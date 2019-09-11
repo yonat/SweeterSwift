@@ -7,7 +7,7 @@
 import UIKit
 
 extension UIViewController {
-    /// SweeterSwift: Add child view controller pinned to specific places.
+    /// Sweeter: Add child view controller pinned to specific places.
     /// Example: addConstrainedChild(pages, constrain: .bottomMargin, .top, .left, .right)
     public func addConstrainedChild(_ viewController: UIViewController, constrain: NSLayoutConstraint.Attribute...) {
         addChild(viewController)

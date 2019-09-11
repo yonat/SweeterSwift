@@ -7,7 +7,7 @@
 import Foundation
 
 extension DateFormatter {
-    /// SweeterSwift: Create a new formatter with format string.
+    /// Sweeter: Create a new formatter with format string.
     public convenience init(format: String, timeZone: TimeZone = .current, locale: String? = nil) {
         self.init()
         dateFormat = format

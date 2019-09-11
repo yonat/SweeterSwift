@@ -7,7 +7,7 @@
 import UIKit
 
 extension UIView {
-    /// SweeterSwift: Set constant attribute. Example: `constrain(.width, to: 17)`
+    /// Sweeter: Set constant attribute. Example: `constrain(.width, to: 17)`
     @discardableResult public func constrain(
         _ at: NSLayoutConstraint.Attribute,
         to: CGFloat = 0,
@@ -24,7 +24,7 @@ extension UIView {
         return constraint
     }
 
-    /// SweeterSwift: Pin subview at a specific place. Example: `constrain(label, at: .top)`
+    /// Sweeter: Pin subview at a specific place. Example: `constrain(label, at: .top)`
     @discardableResult public func constrain(
         _ subview: UIView,
         at: NSLayoutConstraint.Attribute,
@@ -42,7 +42,7 @@ extension UIView {
         return constraint
     }
 
-    /// SweeterSwift: Pin two subviews to each other. Example:
+    /// Sweeter: Pin two subviews to each other. Example:
     ///
     /// `constrain(label, at: .leading, to: textField)`
     ///
@@ -67,7 +67,7 @@ extension UIView {
         return constraint
     }
 
-    /// SweeterSwift: Add subview pinned to specific places. Example: `addConstrainedSubview(button, constrain: .centerX, .centerY)`
+    /// Sweeter: Add subview pinned to specific places. Example: `addConstrainedSubview(button, constrain: .centerX, .centerY)`
     @discardableResult public func addConstrainedSubview(_ subview: UIView, constrain: NSLayoutConstraint.Attribute...) -> [NSLayoutConstraint] {
         return addConstrainedSubview(subview, constrainedAttributes: constrain)
     }
@@ -88,7 +88,7 @@ extension UIView {
         addConstraint(constraint)
     }
 
-    /// SweeterSwift: Search the view hierarchy recursively for a subview that conforms to `predicate`
+    /// Sweeter: Search the view hierarchy recursively for a subview that conforms to `predicate`
     public func viewInHierarchy(frontFirst: Bool = true, where predicate: (UIView) -> Bool) -> UIView? {
         if predicate(self) { return self }
         let views = frontFirst ? subviews.reversed() : subviews
@@ -100,12 +100,12 @@ extension UIView {
         return nil
     }
 
-    /// SweeterSwift: Search the view hierarchy recursively for a subview with `aClass`
+    /// Sweeter: Search the view hierarchy recursively for a subview with `aClass`
     public func viewWithClass<T>(_ aClass: T.Type, frontFirst: Bool = true) -> T? {
         return viewInHierarchy(frontFirst: frontFirst, where: { $0 is T }) as? T
     }
 
-    /// SweeterSwift: The color used to tint the view, as inherited from its superviews.
+    /// Sweeter: The color used to tint the view, as inherited from its superviews.
     public var actualTintColor: UIColor {
         var tintedView: UIView? = self
         while let currentView = tintedView, nil == currentView.tintColor {

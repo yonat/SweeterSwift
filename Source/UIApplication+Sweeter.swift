@@ -7,7 +7,7 @@
 import UIKit
 
 extension UIApplication {
-    /// SweeterSwift: Returns the currently top-most view controller.
+    /// Sweeter: Returns the currently top-most view controller.
     public class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(base: nav.visibleViewController)
@@ -23,7 +23,7 @@ extension UIApplication {
         return base
     }
 
-    /// SweeterSwift: Show `viewController` over the top-most view controller.
+    /// Sweeter: Show `viewController` over the top-most view controller.
     public class func present(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             topViewController()?.present(viewController, animated: animated, completion: completion)

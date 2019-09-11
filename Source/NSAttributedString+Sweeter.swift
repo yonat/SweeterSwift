@@ -7,7 +7,7 @@
 import Foundation
 
 extension NSAttributedString {
-    /// SweeterSwift: Create attributed string from HTML
+    /// Sweeter: Create attributed string from HTML
     public convenience init?(htmlString: String, defaultAttributes: [NSAttributedString.Key: Any]? = nil) {
         guard let data = htmlString.data(using: .utf8) else { return nil }
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
@@ -21,7 +21,7 @@ extension NSAttributedString {
 }
 
 extension NSMutableAttributedString {
-    /// SweeterSwift: Make part of the string into a link.
+    /// Sweeter: Make part of the string into a link.
     ///
     /// - Parameters:
     ///   - url: link address.
