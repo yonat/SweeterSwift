@@ -30,3 +30,12 @@ public protocol Optionable {
 extension Optional: Optionable {
     public var value: Wrapped? { return self }
 }
+
+infix operator =? : AssignmentPrecedence
+
+/// Sweeter: Assign iff right side is not nil.
+public func =?<T>(lhs: inout T, rhs: T?) {
+    if nil != rhs, let rhs = rhs {
+        lhs = rhs
+    }
+}
