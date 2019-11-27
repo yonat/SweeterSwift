@@ -234,6 +234,7 @@
 				DC7BD86222C7C7B00046FFFA /* Resources */,
 				DF122F0BE3E1626D68DF0DBF /* [CP] Copy Pods Resources */,
 				E8D61AEAE019F1BE39F833AE /* [CP-User] SwiftLint */,
+				6BEE5A36F2607305F11A6C5D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,7 +330,24 @@
 			name = "[CP-User] SwiftLintAutocorrect";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then ${PODS_ROOT}/SwiftLint/swiftlint autocorrect --config ${PODS_ROOT}/SwiftQuality/.swiftlint.yml --path ${SRCROOT}/.. ; fi";
+			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
+		};
+		6BEE5A36F2607305F11A6C5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		6FDE19AE23F9D318D0EA3D82 /* [CP-User] SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -339,7 +357,7 @@
 			name = "[CP-User] SwiftLint";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then ${PODS_ROOT}/SwiftLint/swiftlint --config ${PODS_ROOT}/SwiftQuality/.swiftlint.yml --path ${SRCROOT}/.. ; fi";
+			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
 		};
 		7527C9AF64CED71731CB051B /* [CP-User] SwiftLintAutocorrect */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -349,7 +367,7 @@
 			name = "[CP-User] SwiftLintAutocorrect";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then ${PODS_ROOT}/SwiftLint/swiftlint autocorrect --config ${PODS_ROOT}/SwiftQuality/.swiftlint.yml --path ${SRCROOT}/.. ; fi";
+			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
 		};
 		7BBF9EB03B2533D86CBFA454 /* [CP-User] SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -359,7 +377,7 @@
 			name = "[CP-User] SwiftFormat";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then ${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat --swiftversion ${SWIFT_VERSION} --config ${PODS_ROOT}/SwiftQuality/.swiftformat ${SRCROOT}/.. ; fi";
+			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" --swiftversion ${SWIFT_VERSION} --config \"${PODS_ROOT}/SwiftQuality/.swiftformat\" \"${SRCROOT}/..\" ; fi";
 		};
 		AC9CF0C9D911503A4E51014E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -391,7 +409,7 @@
 			name = "[CP-User] SwiftFormat";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then ${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat --swiftversion ${SWIFT_VERSION} --config ${PODS_ROOT}/SwiftQuality/.swiftformat ${SRCROOT}/.. ; fi";
+			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" --swiftversion ${SWIFT_VERSION} --config \"${PODS_ROOT}/SwiftQuality/.swiftformat\" \"${SRCROOT}/..\" ; fi";
 		};
 		DF122F0BE3E1626D68DF0DBF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -418,7 +436,7 @@
 			name = "[CP-User] SwiftLint";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then ${PODS_ROOT}/SwiftLint/swiftlint --config ${PODS_ROOT}/SwiftQuality/.swiftlint.yml --path ${SRCROOT}/.. ; fi";
+			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
 		};
 		F378D9E3FE8DCB5B6B430B0C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
