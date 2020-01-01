@@ -13,13 +13,15 @@ extension UIView {
         to: CGFloat = 0,
         ratio: CGFloat = 1,
         relation: NSLayoutConstraint.Relation = .equal,
-        priority: UILayoutPriority = .required
+        priority: UILayoutPriority = .required,
+        identifier: String? = nil
     ) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(
             item: self, attribute: at, relatedBy: relation,
             toItem: nil, attribute: .notAnAttribute, multiplier: ratio, constant: to
         )
         constraint.priority = priority
+        constraint.identifier = identifier
         addConstraintWithoutConflict(constraint)
         return constraint
     }
@@ -31,13 +33,15 @@ extension UIView {
         diff: CGFloat = 0,
         ratio: CGFloat = 1,
         relation: NSLayoutConstraint.Relation = .equal,
-        priority: UILayoutPriority = .required
+        priority: UILayoutPriority = .required,
+        identifier: String? = nil
     ) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(
             item: subview, attribute: at, relatedBy: relation,
             toItem: self, attribute: at, multiplier: ratio, constant: diff
         )
         constraint.priority = priority
+        constraint.identifier = identifier
         addConstraintWithoutConflict(constraint)
         return constraint
     }
@@ -55,7 +59,8 @@ extension UIView {
         diff: CGFloat = 0,
         ratio: CGFloat = 1,
         relation: NSLayoutConstraint.Relation = .equal,
-        priority: UILayoutPriority = .required
+        priority: UILayoutPriority = .required,
+        identifier: String? = nil
     ) -> NSLayoutConstraint {
         let at2real = at2 == .notAnAttribute ? at : at2
         let constraint = NSLayoutConstraint(
@@ -63,6 +68,7 @@ extension UIView {
             toItem: subview2, attribute: at2real, multiplier: ratio, constant: diff
         )
         constraint.priority = priority
+        constraint.identifier = identifier
         addConstraintWithoutConflict(constraint)
         return constraint
     }
