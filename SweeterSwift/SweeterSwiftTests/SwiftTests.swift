@@ -28,11 +28,22 @@ class SwiftTests: XCTestCase {
     func testWeakSelfInMemberFunction() {
         class Foo: DefaultConstructible {
             static var refCount = 0
+
             func foo() {}
+            func fooWithParam(n: Int) {}
+            func fooWithReturn() -> String { "" }
+            func fooWithParamAndReturn(array: [Character]) -> Double { 0 }
+
             lazy var fooRef = weak(self, in: Foo.foo)
+            lazy var fooWithParamRef = weak(self, in: Foo.fooWithParam)
+            lazy var fooWithReturnRef = weak(self, in: Foo.fooWithReturn)
+            lazy var fooWithParamAndReturnRef = weak(self, in: Foo.fooWithParamAndReturn)
 
             required init() {
                 fooRef()
+                fooWithParamRef(7)
+                _ = fooWithReturn()
+                _ = fooWithParamAndReturnRef([])
                 Foo.refCount += 1
             }
 
@@ -40,6 +51,8 @@ class SwiftTests: XCTestCase {
                 Foo.refCount -= 1
             }
         }
+
+        XCTAssertEqual(Foo.refCount, 0)
 
         for _ in 0 ..< 3 {
             let aFoo = Foo()

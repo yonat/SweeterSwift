@@ -171,6 +171,12 @@ Unwrap collection, shorthand for `compactMap { $0 }`:
 let nonOptionals = optionalsCollection.compact
 ```
 
+Avoid retain cycles when passing a member function as an @escaping closure:
+
+```swift
+var closure = weak(self, in: MyClass.someFunction)
+```
+
 ### TimeInterval
 
 Standard time intervals:
