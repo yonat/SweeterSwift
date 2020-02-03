@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - add optional `identifier` parameter to `UIView.constrain`.
+- add `weak(self, in: MyClass.foo)` to avoid retain cycles when passing a member function as an @escaping closure.
 
 ## [1.0.5] - 2019-09-21
 

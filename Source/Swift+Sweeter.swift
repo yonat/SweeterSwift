@@ -31,11 +31,72 @@ extension Optional: Optionable {
     public var value: Wrapped? { return self }
 }
 
-infix operator =? : AssignmentPrecedence
+infix operator =?: AssignmentPrecedence
 
 /// Sweeter: Assign iff right side is not nil.
-public func =?<T>(lhs: inout T, rhs: T?) {
+public func =? <T>(lhs: inout T, rhs: T?) {
     if nil != rhs, let rhs = rhs {
         lhs = rhs
+    }
+}
+
+public protocol DefaultConstructible {
+    init()
+}
+
+extension Optional: DefaultConstructible {
+    public init() {
+        self = .none
+    }
+}
+
+extension IntegerLiteralType: DefaultConstructible {}
+extension BooleanLiteralType: DefaultConstructible {}
+extension FloatLiteralType: DefaultConstructible {}
+extension StringLiteralType: DefaultConstructible {}
+extension Array: DefaultConstructible {}
+extension Dictionary: DefaultConstructible {}
+extension Set: DefaultConstructible {}
+extension IndexSet: DefaultConstructible {}
+extension CharacterSet: DefaultConstructible {}
+extension NSObject: DefaultConstructible {}
+
+/// Pass a member function as an @escaping closure without retaining its object.
+///
+///  Example:  `var fooRef = weak(self, in: MyClass.foo)`
+public func weak<T: AnyObject>(_ instance: T, in classFunction: @escaping (T) -> () -> Void) -> () -> Void {
+    return { [weak instance] in
+        guard let instance = instance else { return }
+        classFunction(instance)()
+    }
+}
+
+/// Pass a member function as an @escaping closure without retaining its object.
+///
+///  Example:  `var fooRef = weak(self, in: MyClass.foo)`
+public func weak<T: AnyObject, U>(_ instance: T, in classFunction: @escaping (T) -> (U) -> Void) -> (U) -> Void {
+    return { [weak instance] arguments in
+        guard let instance = instance else { return }
+        classFunction(instance)(arguments)
+    }
+}
+
+/// Pass a member function as an @escaping closure without retaining its object.
+///
+///  Example:  `var fooRef = weak(self, in: MyClass.foo)`
+public func weak<T: AnyObject, V: DefaultConstructible>(_ instance: T, in classFunction: @escaping (T) -> () -> V) -> () -> V {
+    return { [weak instance] in
+        guard let instance = instance else { return V() }
+        return classFunction(instance)()
+    }
+}
+
+/// Pass a member function as an @escaping closure without retaining its object.
+///
+///  Example:  `var fooRef = weak(self, in: MyClass.foo)`
+public func weak<T: AnyObject, U, V: DefaultConstructible>(_ instance: T, in classFunction: @escaping (T) -> (U) -> V) -> (U) -> V {
+    return { [weak instance] arguments in
+        guard let instance = instance else { return V() }
+        return classFunction(instance)(arguments)
     }
 }

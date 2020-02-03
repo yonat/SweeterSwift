@@ -24,4 +24,29 @@ class SwiftTests: XCTestCase {
         let arrayOfOptionals: [Int?] = [0, 1, nil, 2, nil, nil, 3]
         XCTAssertEqual(arrayOfOptionals.compact, [0, 1, 2, 3])
     }
+
+    func testWeakSelfInMemberFunction() {
+        class Foo: DefaultConstructible {
+            static var refCount = 0
+            func foo() {}
+            lazy var fooRef = weak(self, in: Foo.foo)
+
+            required init() {
+                fooRef()
+                Foo.refCount += 1
+            }
+
+            deinit {
+                Foo.refCount -= 1
+            }
+        }
+
+        for _ in 0 ..< 3 {
+            let aFoo = Foo()
+            aFoo.foo()
+            XCTAssertEqual(Foo.refCount, 1)
+        }
+
+        XCTAssertEqual(Foo.refCount, 0)
+    }
 }
