@@ -59,7 +59,6 @@ extension Dictionary: DefaultConstructible {}
 extension Set: DefaultConstructible {}
 extension IndexSet: DefaultConstructible {}
 extension CharacterSet: DefaultConstructible {}
-extension NSObject: DefaultConstructible {}
 
 // based on https://sveinhal.github.io/2016/03/16/retain-cycles-function-references/
 
