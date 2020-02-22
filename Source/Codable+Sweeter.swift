@@ -8,8 +8,8 @@ import Foundation
 
 extension Decodable {
     /// Sweeter: Create object from a dictionary
-    public init?(from: Any) {
-        guard let data = try? JSONSerialization.data(withJSONObject: from, options: .prettyPrinted) else { return nil }
+    public init?(dictionary: [String: Any]) {
+        guard let data = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) else { return nil }
         guard let decodedSelf = try? JSONDecoder().decode(Self.self, from: data) else { return nil }
         self = decodedSelf
     }

@@ -13,6 +13,7 @@ struct CodableTestStruct: Codable {
     var number: Int
     var string: String
     var flag: Bool
+    var optionalFloat: Float?
 }
 
 class CodableTests: XCTestCase {
@@ -23,19 +24,19 @@ class CodableTests: XCTestCase {
         "flag": true,
     ]
 
-    func testInitFromDictionary() {
-        let structFromDictionary = CodableTestStruct(from: testDictionary)
-        XCTAssertNotNil(structFromDictionary)
-        XCTAssertEqual(structFromDictionary?.number, 42)
-        XCTAssertEqual(structFromDictionary?.string, "How many roads")
-        XCTAssertEqual(structFromDictionary?.flag, true)
+    func testInitFromDictionary() throws {
+        let structFromDictionary = try XCTUnwrap(CodableTestStruct(dictionary: testDictionary))
+        XCTAssertEqual(structFromDictionary.number, 42)
+        XCTAssertEqual(structFromDictionary.string, "How many roads")
+        XCTAssertEqual(structFromDictionary.flag, true)
+        XCTAssertNil(structFromDictionary.optionalFloat)
     }
 
-    func testSaveToDictionary() {
-        let dictionaryFromStruct = testStruct.dictionary
-        XCTAssertNotNil(dictionaryFromStruct)
-        XCTAssertEqual(dictionaryFromStruct?["number"] as? Int, 42)
-        XCTAssertEqual(dictionaryFromStruct?["string"] as? String, "How many roads")
-        XCTAssertEqual(dictionaryFromStruct?["flag"] as? Bool, true)
+    func testSaveToDictionary() throws {
+        let dictionaryFromStruct = try XCTUnwrap(testStruct.dictionary)
+        XCTAssertEqual(dictionaryFromStruct["number"] as? Int, 42)
+        XCTAssertEqual(dictionaryFromStruct["string"] as? String, "How many roads")
+        XCTAssertEqual(dictionaryFromStruct["flag"] as? Bool, true)
+        XCTAssertNil(dictionaryFromStruct["optionalFloat"])
     }
 }

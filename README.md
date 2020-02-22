@@ -84,7 +84,7 @@ let appInfo = Bundle.main.infoString // "MyApp 1.0 #42"
 Create object from a dictionary:
 
 ```swift
-let decodableObject = MyDecodableClass(from: aDictionary)
+let decodableObject = MyDecodableClass(dictionary: aDictionary)
 ```
 
 Export object to a dictionary:
