@@ -7,8 +7,17 @@
 import UIKit
 
 extension UIApplication {
+    /// Sweeter: `keyWindow` for scene-based apps
+    public var legacyKeyWindow: UIWindow? {
+        if #available(iOS 13, *) {
+            return windows.first { $0.isKeyWindow }
+        } else {
+            return keyWindow
+        }
+    }
+
     /// Sweeter: Returns the currently top-most view controller.
-    public class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+    public class func topViewController(base: UIViewController? = UIApplication.shared.legacyKeyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(base: nav.visibleViewController)
         }

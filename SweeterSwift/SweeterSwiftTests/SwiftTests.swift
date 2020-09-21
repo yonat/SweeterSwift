@@ -7,6 +7,7 @@
 //
 
 import SweeterSwift
+import UIKit
 import XCTest
 
 enum SwiftTestEnum: CaseIterable {
@@ -61,5 +62,11 @@ class SwiftTests: XCTestCase {
         }
 
         XCTAssertEqual(Foo.refCount, 0)
+    }
+
+    func testOptionableValue() {
+        let optionalStepper: UIStepper? = UIStepper()
+        optionalStepper?.value = 42
+        XCTAssertEqual(optionalStepper?.value, 42)
     }
 }
