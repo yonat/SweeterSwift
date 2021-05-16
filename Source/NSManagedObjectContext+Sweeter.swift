@@ -8,10 +8,11 @@ import CoreData
 
 extension NSManagedObjectContext {
     /// Sweeter: Dump contents to console - for debugging
-    public func printAllObjects() {
-        guard let entityDescriptions = persistentStoreCoordinator?.managedObjectModel.entities else { return }
-        for entity in entityDescriptions {
-            guard let entityName = entity.name else { continue }
+    public func printAllObjects(entityName: String...) {
+        let entityNames = entityName.isEmpty
+            ? persistentStoreCoordinator?.managedObjectModel.entities.compactMap(\.name) ?? []
+            : entityName
+        for entityName in entityNames {
             guard let objects = try? fetch(NSFetchRequest(entityName: entityName)) else { continue }
             print("== \(entityName) (\(objects.count)) ==")
             for object in objects {
