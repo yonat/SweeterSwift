@@ -4,9 +4,9 @@
 //  Created by Yonat Sharon on 2019-02-21.
 //
 
-extension CaseIterable where Self: Equatable {
+public extension CaseIterable where Self: Equatable {
     /// Sweeter: Index of current case in `allCases`.
-    public var index: Int {
+    var index: Int {
         let all = Array(Self.allCases)
         return all.firstIndex(of: self)! // swiftlint:disable:this force_unwrapping
     }
@@ -14,9 +14,9 @@ extension CaseIterable where Self: Equatable {
 
 // from https://gist.github.com/siejkowski/a2b187800f2e28b53c96
 
-extension Sequence where Element: Optionable {
+public extension Sequence where Element: Optionable {
     /// Sweeter: Shorthand for `compactMap { $0 }`.
-    public var compact: [Element.Wrapped] {
+    var compact: [Element.Wrapped] {
         return compactMap { $0.value }
     }
 }

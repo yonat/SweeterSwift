@@ -6,9 +6,9 @@
 
 import Foundation
 
-extension DateFormatter {
+public extension DateFormatter {
     /// Sweeter: Create a new formatter with format string.
-    public convenience init(format: String, timeZone: TimeZone = .current, locale: String? = nil) {
+    convenience init(format: String, timeZone: TimeZone = .current, locale: String? = nil) {
         self.init()
         dateFormat = format
         self.timeZone = timeZone

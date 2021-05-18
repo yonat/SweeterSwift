@@ -6,14 +6,14 @@
 
 import Foundation
 
-extension NSObject {
+public extension NSObject {
     /// Sweeter: Post a local notification using `NotificationCenter.default`.
-    public func notify(_ notificationName: Notification.Name, userInfo: [AnyHashable: Any]? = nil) {
+    func notify(_ notificationName: Notification.Name, userInfo: [AnyHashable: Any]? = nil) {
         NotificationCenter.default.post(name: notificationName, object: self, userInfo: userInfo)
     }
 
     /// Sweeter: Respond to a local notification from `NotificationCenter.default`.
-    public func observeNotification(name: Notification.Name, selector: Selector, object: Any? = nil) {
+    func observeNotification(name: Notification.Name, selector: Selector, object: Any? = nil) {
         NotificationCenter.default.addObserver(self, selector: selector, name: name, object: object)
     }
 }

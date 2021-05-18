@@ -6,14 +6,14 @@
 
 import CoreData
 
-extension NSManagedObjectContext {
+public extension NSManagedObjectContext {
     /// Sweeter: Names of all entities in the object model associated with the receiver
-    public var allEntityNames: [String] {
+    var allEntityNames: [String] {
         return persistentStoreCoordinator?.managedObjectModel.entities.compactMap(\.name) ?? []
     }
 
     /// Sweeter: Delete all objects, or all objects of specific entity name(s).
-    public func deleteAllObjects(entityName: String...) throws {
+    func deleteAllObjects(entityName: String...) throws {
         let entityNames = entityName.isEmpty ? allEntityNames : entityName
         for entityName in entityNames {
             let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
@@ -23,7 +23,7 @@ extension NSManagedObjectContext {
     }
 
     /// Sweeter: Dump contents to console - for debugging
-    public func printAllObjects(entityName: String...) {
+    func printAllObjects(entityName: String...) {
         let entityNames = entityName.isEmpty ? allEntityNames : entityName
         for entityName in entityNames {
             guard let objects = try? fetch(NSFetchRequest(entityName: entityName)) else { continue }
@@ -35,7 +35,7 @@ extension NSManagedObjectContext {
     }
 
     /// Sweeter: Create a copy of the store for backup or for using later as initial setup
-    public func backupStore() {
+    func backupStore() {
         guard let persistentStoreCoordinator = persistentStoreCoordinator else { return }
         guard let sourceStore = persistentStoreCoordinator.persistentStores.first else { return }
         let backupCoordinator = NSPersistentStoreCoordinator(managedObjectModel: persistentStoreCoordinator.managedObjectModel)

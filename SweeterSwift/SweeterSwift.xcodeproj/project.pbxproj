@@ -210,7 +210,6 @@
 				DC7BD84222C7C4FB0046FFFA /* Sources */,
 				DC7BD84322C7C4FB0046FFFA /* Frameworks */,
 				DC7BD84422C7C4FB0046FFFA /* Resources */,
-				F378D9E3FE8DCB5B6B430B0C /* [CP] Copy Pods Resources */,
 				6FDE19AE23F9D318D0EA3D82 /* [CP-User] SwiftLint */,
 			);
 			buildRules = (
@@ -232,7 +231,6 @@
 				DC7BD86022C7C7B00046FFFA /* Sources */,
 				DC7BD86122C7C7B00046FFFA /* Frameworks */,
 				DC7BD86222C7C7B00046FFFA /* Resources */,
-				DF122F0BE3E1626D68DF0DBF /* [CP] Copy Pods Resources */,
 				E8D61AEAE019F1BE39F833AE /* [CP-User] SwiftLint */,
 				6BEE5A36F2607305F11A6C5D /* [CP] Embed Pods Frameworks */,
 			);
@@ -411,23 +409,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" --swiftversion ${SWIFT_VERSION} --config \"${PODS_ROOT}/SwiftQuality/.swiftformat\" \"${SRCROOT}/..\" ; fi";
 		};
-		DF122F0BE3E1626D68DF0DBF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E8D61AEAE019F1BE39F833AE /* [CP-User] SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,23 +418,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
-		};
-		F378D9E3FE8DCB5B6B430B0C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwift/Pods-SweeterSwift-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwift/Pods-SweeterSwift-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SweeterSwift/Pods-SweeterSwift-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

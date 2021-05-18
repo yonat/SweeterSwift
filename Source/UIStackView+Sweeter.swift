@@ -6,15 +6,15 @@
 
 import UIKit
 
-extension UIStackView {
+public extension UIStackView {
     /// Sweeter: Remove `subview` from the view hierarchy, not just the stack arrangement.
-    public func removeArrangedSubviewCompletely(_ subview: UIView) {
+    func removeArrangedSubviewCompletely(_ subview: UIView) {
         removeArrangedSubview(subview)
         subview.removeFromSuperview()
     }
 
     /// Sweeter: Remove all arranged subviews from the view hierarchy, not just the stack arrangement.
-    public func removeAllArrangedSubviewsCompletely() {
+    func removeAllArrangedSubviewsCompletely() {
         for subview in arrangedSubviews.reversed() {
             removeArrangedSubviewCompletely(subview)
         }

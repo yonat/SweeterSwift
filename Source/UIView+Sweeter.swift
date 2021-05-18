@@ -6,9 +6,9 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     /// Sweeter: Set constant attribute. Example: `constrain(.width, to: 17)`
-    @discardableResult public func constrain(
+    @discardableResult func constrain(
         _ at: NSLayoutConstraint.Attribute,
         to: CGFloat = 0,
         ratio: CGFloat = 1,
@@ -27,7 +27,7 @@ extension UIView {
     }
 
     /// Sweeter: Pin subview at a specific place. Example: `constrain(label, at: .top)`
-    @discardableResult public func constrain(
+    @discardableResult func constrain(
         _ subview: UIView,
         at: NSLayoutConstraint.Attribute,
         diff: CGFloat = 0,
@@ -51,7 +51,7 @@ extension UIView {
     /// `constrain(label, at: .leading, to: textField)`
     ///
     /// `constrain(textField, at: .top, to: label, at: .bottom, diff: 8)`
-    @discardableResult public func constrain(
+    @discardableResult func constrain(
         _ subview: UIView,
         at: NSLayoutConstraint.Attribute,
         to subview2: UIView,
@@ -74,17 +74,17 @@ extension UIView {
     }
 
     /// Sweeter: Add subview pinned to specific places. Example: `addConstrainedSubview(button, constrain: .centerX, .centerY)`
-    @discardableResult public func addConstrainedSubview(_ subview: UIView, constrain: NSLayoutConstraint.Attribute...) -> [NSLayoutConstraint] {
+    @discardableResult func addConstrainedSubview(_ subview: UIView, constrain: NSLayoutConstraint.Attribute...) -> [NSLayoutConstraint] {
         return addConstrainedSubview(subview, constrainedAttributes: constrain)
     }
 
-    @discardableResult func addConstrainedSubview(_ subview: UIView, constrainedAttributes: [NSLayoutConstraint.Attribute]) -> [NSLayoutConstraint] {
+    @discardableResult internal func addConstrainedSubview(_ subview: UIView, constrainedAttributes: [NSLayoutConstraint.Attribute]) -> [NSLayoutConstraint] {
         subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
         return constrainedAttributes.map { self.constrain(subview, at: $0) }
     }
 
-    func addConstraintWithoutConflict(_ constraint: NSLayoutConstraint) {
+    internal func addConstraintWithoutConflict(_ constraint: NSLayoutConstraint) {
         removeConstraints(constraints.filter {
             constraint.firstItem === $0.firstItem
                 && constraint.secondItem === $0.secondItem
@@ -95,7 +95,7 @@ extension UIView {
     }
 
     /// Sweeter: Search the view hierarchy recursively for a subview that conforms to `predicate`
-    public func viewInHierarchy(frontFirst: Bool = true, where predicate: (UIView) -> Bool) -> UIView? {
+    func viewInHierarchy(frontFirst: Bool = true, where predicate: (UIView) -> Bool) -> UIView? {
         if predicate(self) { return self }
         let views = frontFirst ? subviews.reversed() : subviews
         for subview in views {
@@ -107,12 +107,12 @@ extension UIView {
     }
 
     /// Sweeter: Search the view hierarchy recursively for a subview with `aClass`
-    public func viewWithClass<T>(_ aClass: T.Type, frontFirst: Bool = true) -> T? {
+    func viewWithClass<T>(_ aClass: T.Type, frontFirst: Bool = true) -> T? {
         return viewInHierarchy(frontFirst: frontFirst, where: { $0 is T }) as? T
     }
 
     /// Sweeter: The color used to tint the view, as inherited from its superviews.
-    public var actualTintColor: UIColor {
+    var actualTintColor: UIColor {
         var tintedView: UIView? = self
         while let currentView = tintedView, nil == currentView.tintColor {
             tintedView = currentView.superview

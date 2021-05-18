@@ -6,10 +6,10 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
     /// Sweeter: Add child view controller pinned to specific places.
     /// Example: addConstrainedChild(pages, constrain: .bottomMargin, .top, .left, .right)
-    public func addConstrainedChild(_ viewController: UIViewController, constrain: NSLayoutConstraint.Attribute...) {
+    func addConstrainedChild(_ viewController: UIViewController, constrain: NSLayoutConstraint.Attribute...) {
         addChild(viewController)
         view.addConstrainedSubview(viewController.view, constrainedAttributes: constrain)
         viewController.didMove(toParent: self)

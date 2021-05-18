@@ -6,9 +6,9 @@
 
 import Foundation
 
-extension NSAttributedString {
+public extension NSAttributedString {
     /// Sweeter: Create attributed string from HTML
-    public convenience init?(htmlString: String, defaultAttributes: [NSAttributedString.Key: Any]? = nil) {
+    convenience init?(htmlString: String, defaultAttributes: [NSAttributedString.Key: Any]? = nil) {
         guard let data = htmlString.data(using: .utf8) else { return nil }
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
             .documentType: NSAttributedString.DocumentType.html,
@@ -20,13 +20,13 @@ extension NSAttributedString {
     }
 }
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     /// Sweeter: Make part of the string into a link.
     ///
     /// - Parameters:
     ///   - url: link address.
     ///   - anchorText: substring to make into a link.
-    public func link(anchorText: String, url: String) {
+    func link(anchorText: String, url: String) {
         guard let urlObject = URL(string: url) else { return }
         let anchorRange = mutableString.range(of: anchorText, options: [.caseInsensitive, .diacriticInsensitive, .widthInsensitive])
         guard NSNotFound != anchorRange.location else { return }

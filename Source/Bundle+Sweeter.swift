@@ -6,16 +6,16 @@
 
 import Foundation
 
-extension Bundle {
+public extension Bundle {
     /// Sweeter: app name with reasonable fallback to process name
-    public var name: String {
+    var name: String {
         return infoDictionary?["CFBundleDisplayName"] as? String
             ?? infoDictionary?["CFBundleName"] as? String
             ?? ProcessInfo.processInfo.processName
     }
 
     /// Sweeter: app name, version, and build number
-    public var infoString: String {
+    var infoString: String {
         let version = infoDictionary?["CFBundleShortVersionString"] as? String
         let build = infoDictionary?["CFBundleVersion"] as? String
 
