@@ -7,11 +7,24 @@
 import CoreData
 
 extension NSManagedObjectContext {
+    /// Sweeter: Names of all entities in the object model associated with the receiver
+    public var allEntityNames: [String] {
+        return persistentStoreCoordinator?.managedObjectModel.entities.compactMap(\.name) ?? []
+    }
+
+    /// Sweeter: Delete all objects, or all objects of specific entity name(s).
+    public func deleteAllObjects(entityName: String...) throws {
+        let entityNames = entityName.isEmpty ? allEntityNames : entityName
+        for entityName in entityNames {
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            try execute(deleteRequest)
+        }
+    }
+
     /// Sweeter: Dump contents to console - for debugging
     public func printAllObjects(entityName: String...) {
-        let entityNames = entityName.isEmpty
-            ? persistentStoreCoordinator?.managedObjectModel.entities.compactMap(\.name) ?? []
-            : entityName
+        let entityNames = entityName.isEmpty ? allEntityNames : entityName
         for entityName in entityNames {
             guard let objects = try? fetch(NSFetchRequest(entityName: entityName)) else { continue }
             print("== \(entityName) (\(objects.count)) ==")
