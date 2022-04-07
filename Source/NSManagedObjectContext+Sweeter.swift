@@ -26,7 +26,7 @@ public extension NSManagedObjectContext {
     func printAllObjects(entityName: String...) {
         let entityNames = entityName.isEmpty ? allEntityNames : entityName
         for entityName in entityNames {
-            guard let objects = try? fetch(NSFetchRequest(entityName: entityName)) else { continue }
+            guard let objects = try? fetch(NSFetchRequest<NSFetchRequestResult>(entityName: entityName)) else { continue }
             print("== \(entityName) (\(objects.count)) ==")
             for object in objects {
                 print(String(describing: object))
