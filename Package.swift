@@ -13,6 +13,7 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(name: "SweeterSwift", dependencies: [], path: "Source"),
+        .testTarget(name: "SweeterSwiftTests", dependencies: ["SweeterSwift"], path: "SweeterSwift/SweeterSwiftTests"),
     ],
     swiftLanguageVersions: [.v5]
 )
