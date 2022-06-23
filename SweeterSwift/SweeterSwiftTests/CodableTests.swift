@@ -39,4 +39,23 @@ class CodableTests: XCTestCase {
         XCTAssertEqual(dictionaryFromStruct["flag"] as? Bool, true)
         XCTAssertNil(dictionaryFromStruct["optionalFloat"])
     }
+
+    func testCodableNameConflict() throws {
+        let testDecodableStruct = TestDecodableStruct(dictionary: ["number": 1, "string": "Sweeter"])
+        XCTAssertEqual(testDecodableStruct?.number, 42)
+        XCTAssertEqual(testDecodableStruct?.string, "Override Sweeter init")
+    }
+}
+
+struct TestDecodableStruct {
+    var number: Int
+    var string: String
+}
+
+extension TestDecodableStruct: Decodable {}
+
+extension TestDecodableStruct {
+    init?(dictionary: [String: Any]) {
+        self.init(number: 42, string: "Override Sweeter init")
+    }
 }
