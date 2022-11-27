@@ -6,6 +6,7 @@
 
 import Foundation
 
+// swiftlint:disable no_magic_numbers
 public extension TimeInterval {
     static let minute: TimeInterval = 60
     static let hour: TimeInterval = 60 * minute

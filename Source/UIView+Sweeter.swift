@@ -117,6 +117,6 @@ public extension UIView {
         while let currentView = tintedView, nil == currentView.tintColor {
             tintedView = currentView.superview
         }
-        return tintedView?.tintColor ?? UIColor(red: 0, green: 0.5, blue: 1, alpha: 1)
+        return tintedView?.tintColor ?? UIColor(red: 0, green: 0.5, blue: 1, alpha: 1) // swiftlint:disable:this no_magic_numbers
     }
 }

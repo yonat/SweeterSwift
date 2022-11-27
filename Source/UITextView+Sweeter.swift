@@ -20,6 +20,6 @@ public extension UITextView {
         textContainerInset = .zero
         backgroundColor = .clear
         self.font = font
-        constrain(.height, to: font.pointSize * 1.5)
+        constrain(.height, to: font.pointSize * 1.5) // swiftlint:disable:this no_magic_numbers
     }
 }
