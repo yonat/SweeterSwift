@@ -1,5 +1,5 @@
 PODS:
-  - SweeterSwift (1.1.5)
+  - SweeterSwift (1.2.1)
   - SwiftFormat/CLI (0.48.1)
   - SwiftLint (0.41.0)
   - SwiftQuality (1.1.1):
@@ -27,11 +27,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/yonat/SwiftQuality
 
 SPEC CHECKSUMS:
-  SweeterSwift: 1f56403d781ce6b6dabeef7a4a0d1d366962adaf
+  SweeterSwift: 266367986dec90ba53bf521eabe0210e22e80445
   SwiftFormat: 094c5e2e6c36dafdd128d04cff4a0a7d87492e73
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
   SwiftQuality: fba6a2775b0e35f9d8c945fd0011c44c8b0e93bd
 
-PODFILE CHECKSUM: 62fc639f14c9e5c09510f34b1db0556740302b5d
+PODFILE CHECKSUM: 2a19f03182702703782ea18706704da1e9dc9cc0
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.12.1

@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/yonat/SweeterSwift.git", :tag => s.version }
   s.source_files  = "Source/*.swift"
+  s.resources = ['PrivacyInfo.xcprivacy']
 
 end
