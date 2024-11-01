@@ -12,7 +12,7 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "SweeterSwift", dependencies: [], path: "Source", resources: [.copy("PrivacyInfo.xcprivacy")]),
+        .target(name: "SweeterSwift", dependencies: [], path: "Source", resources: [.process("PrivacyInfo.xcprivacy")]),
         .testTarget(name: "SweeterSwiftTests", dependencies: ["SweeterSwift"], path: "SweeterSwift/SweeterSwiftTests"),
     ],
     swiftLanguageVersions: [.v5]
