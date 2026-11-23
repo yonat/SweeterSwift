@@ -232,7 +232,6 @@
 				DC7BD86122C7C7B00046FFFA /* Frameworks */,
 				DC7BD86222C7C7B00046FFFA /* Resources */,
 				E8D61AEAE019F1BE39F833AE /* [CP-User] SwiftLint */,
-				6BEE5A36F2607305F11A6C5D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,60 +321,47 @@
 		};
 		6A6825C739C7214D6DBED9E2 /* [CP-User] SwiftLintAutocorrect */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] SwiftLintAutocorrect";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
-		};
-		6BEE5A36F2607305F11A6C5D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SweeterSwiftTests/Pods-SweeterSwiftTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if [[ \"Debug\" == \"${CONFIGURATION}\" && ! $ENABLE_PREVIEWS == \"YES\" ]]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --fix --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" \"${SRCROOT}/..\" ; fi";
 		};
 		6FDE19AE23F9D318D0EA3D82 /* [CP-User] SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] SwiftLint";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
+			shellScript = "if [[ \"Debug\" == \"${CONFIGURATION}\" && ! $ENABLE_PREVIEWS == \"YES\" ]]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" \"${SRCROOT}/..\" ; fi";
 		};
 		7527C9AF64CED71731CB051B /* [CP-User] SwiftLintAutocorrect */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] SwiftLintAutocorrect";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
+			shellScript = "if [[ \"Debug\" == \"${CONFIGURATION}\" && ! $ENABLE_PREVIEWS == \"YES\" ]]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --fix --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" \"${SRCROOT}/..\" ; fi";
 		};
 		7BBF9EB03B2533D86CBFA454 /* [CP-User] SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] SwiftFormat";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" --swiftversion ${SWIFT_VERSION} --config \"${PODS_ROOT}/SwiftQuality/.swiftformat\" \"${SRCROOT}/..\" ; fi";
+			shellScript = "if [[ \"Debug\" == \"${CONFIGURATION}\" && ! $ENABLE_PREVIEWS == \"YES\" ]]; then \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" --swiftversion ${SWIFT_VERSION} --config \"${PODS_ROOT}/SwiftQuality/.swiftformat\" \"${SRCROOT}/..\" ; fi";
 		};
 		AC9CF0C9D911503A4E51014E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -401,23 +387,25 @@
 		};
 		ADC0E09EF1516A58D8F1F414 /* [CP-User] SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] SwiftFormat";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" --swiftversion ${SWIFT_VERSION} --config \"${PODS_ROOT}/SwiftQuality/.swiftformat\" \"${SRCROOT}/..\" ; fi";
+			shellScript = "if [[ \"Debug\" == \"${CONFIGURATION}\" && ! $ENABLE_PREVIEWS == \"YES\" ]]; then \"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" --swiftversion ${SWIFT_VERSION} --config \"${PODS_ROOT}/SwiftQuality/.swiftformat\" \"${SRCROOT}/..\" ; fi";
 		};
 		E8D61AEAE019F1BE39F833AE /* [CP-User] SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] SwiftLint";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"Debug\" == \"${CONFIGURATION}\" ]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" --path \"${SRCROOT}/..\" ; fi";
+			shellScript = "if [[ \"Debug\" == \"${CONFIGURATION}\" && ! $ENABLE_PREVIEWS == \"YES\" ]]; then \"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${PODS_ROOT}/SwiftQuality/.swiftlint.yml\" \"${SRCROOT}/..\" ; fi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -518,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -577,7 +565,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

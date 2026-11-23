@@ -1,13 +1,11 @@
 PODS:
-  - SweeterSwift (1.2.1)
-  - SwiftFormat/CLI (0.48.1)
-  - SwiftLint (0.41.0)
-  - SwiftQuality (1.1.1):
-    - SwiftFormat/CLI (= 0.48.1)
-    - SwiftLint (= 0.41.0)
+  - SwiftFormat/CLI (0.52.11)
+  - SwiftLint (0.54.0)
+  - SwiftQuality (2.0.2):
+    - SwiftFormat/CLI (= 0.52.11)
+    - SwiftLint (= 0.54.0)
 
 DEPENDENCIES:
-  - SweeterSwift (from `..`)
   - SwiftQuality (from `https://github.com/yonat/SwiftQuality`)
 
 SPEC REPOS:
@@ -16,22 +14,19 @@ SPEC REPOS:
     - SwiftLint
 
 EXTERNAL SOURCES:
-  SweeterSwift:
-    :path: ".."
   SwiftQuality:
     :git: https://github.com/yonat/SwiftQuality
 
 CHECKOUT OPTIONS:
   SwiftQuality:
-    :commit: acf4031acdaf3e6f3e035ad6d6de9ab8b83f4e17
+    :commit: 330387800c520c05bc30a4eca825ba36f7a6e8df
     :git: https://github.com/yonat/SwiftQuality
 
 SPEC CHECKSUMS:
-  SweeterSwift: 266367986dec90ba53bf521eabe0210e22e80445
-  SwiftFormat: 094c5e2e6c36dafdd128d04cff4a0a7d87492e73
-  SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
-  SwiftQuality: fba6a2775b0e35f9d8c945fd0011c44c8b0e93bd
+  SwiftFormat: 2ca3d0b75754193f0f3ba532291f25ae08dd1e42
+  SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
+  SwiftQuality: 3a5a16498170de064cb1e3e462551f8b1c3350a3
 
-PODFILE CHECKSUM: 2a19f03182702703782ea18706704da1e9dc9cc0
+PODFILE CHECKSUM: 2036d71335c9fd9621f11034eb7953115f725f4f
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.17.0

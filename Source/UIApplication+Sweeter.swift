@@ -9,11 +9,10 @@ import UIKit
 public extension UIApplication {
     /// Sweeter: `keyWindow` for scene-based apps
     var legacyKeyWindow: UIWindow? {
-        if #available(iOS 13, *) {
-            return windows.first { $0.isKeyWindow }
-        } else {
-            return keyWindow
-        }
+        connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
     }
 
     /// Sweeter: Returns the currently top-most view controller.

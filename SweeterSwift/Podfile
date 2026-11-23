@@ -1,21 +1,20 @@
-platform :ios, '9.3'
+platform :ios, '15.0'
 use_frameworks!
 
-pod 'SweeterSwift', :path => '..'
 pod 'SwiftQuality', :git => 'https://github.com/yonat/SwiftQuality'
 
 def quality_scripts
   script_phase :name => 'SwiftFormat',
     :execution_position => :before_compile,
-    :script => 'if [ "Debug" == "${CONFIGURATION}" ]; then "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" --swiftversion ${SWIFT_VERSION} --config "${PODS_ROOT}/SwiftQuality/.swiftformat" "${SRCROOT}/.." ; fi'
+    :script => 'if [[ "Debug" == "${CONFIGURATION}" && ! $ENABLE_PREVIEWS == "YES" ]]; then "${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat" --swiftversion ${SWIFT_VERSION} --config "${PODS_ROOT}/SwiftQuality/.swiftformat" "${SRCROOT}/.." ; fi'
 
   script_phase :name => 'SwiftLintAutocorrect',
     :execution_position => :before_compile,
-    :script => 'if [ "Debug" == "${CONFIGURATION}" ]; then "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect --config "${PODS_ROOT}/SwiftQuality/.swiftlint.yml" --path "${SRCROOT}/.." ; fi'
+    :script => 'if [[ "Debug" == "${CONFIGURATION}" && ! $ENABLE_PREVIEWS == "YES" ]]; then "${PODS_ROOT}/SwiftLint/swiftlint" --fix --config "${PODS_ROOT}/SwiftQuality/.swiftlint.yml" "${SRCROOT}/.." ; fi'
 
   script_phase :name => 'SwiftLint',
     :execution_position => :after_compile,
-    :script => 'if [ "Debug" == "${CONFIGURATION}" ]; then "${PODS_ROOT}/SwiftLint/swiftlint" --config "${PODS_ROOT}/SwiftQuality/.swiftlint.yml" --path "${SRCROOT}/.." ; fi'
+    :script => 'if [[ "Debug" == "${CONFIGURATION}" && ! $ENABLE_PREVIEWS == "YES" ]]; then "${PODS_ROOT}/SwiftLint/swiftlint" --config "${PODS_ROOT}/SwiftQuality/.swiftlint.yml" "${SRCROOT}/.." ; fi'
 end
 
 target 'SweeterSwift' do
@@ -36,10 +35,26 @@ post_install do |installer|
   end
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
+      # Inherit the deployment target from the Podfile platform (Xcode 27 supports iOS 15.0+ only)
+      config.build_settings.delete('IPHONEOS_DEPLOYMENT_TARGET')
       if config.base_configuration_reference.is_a? Xcodeproj::Project::Object::PBXFileReference
         xcconfig_path = config.base_configuration_reference.real_path
         IO.write(xcconfig_path, IO.read(xcconfig_path).gsub("DT_TOOLCHAIN_DIR", "TOOLCHAIN_DIR"))
       end
     end
   end
+end
+
+# Fix warnings "Run script build phase '[CP] _____' will be run during every build because it does not specify any outputs."
+post_integrate do |installer|
+  main_project = installer.aggregate_targets[0].user_project
+  main_project.targets.each do |target|
+    target.build_phases.each do |phase|
+      next unless phase.is_a?(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
+      next unless phase.name.start_with?("[CP")
+      next unless (phase.input_paths || []).empty? && (phase.output_paths || []).empty?
+      phase.always_out_of_date = "1"
+    end
+  end
+  main_project.save
 end
