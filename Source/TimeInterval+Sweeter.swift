@@ -15,3 +15,5 @@ public extension TimeInterval {
     static let year: TimeInterval = 365.25 * day
     static let month: TimeInterval = year / 12
 }
+
+// swiftlint:enable no_magic_numbers

@@ -1,6 +1,5 @@
 //
 //  SwiftTests.swift
-//  swiftlint:disable no_magic_numbers
 //
 //  Created by Yonat Sharon on 2019-06-29.
 //  Copyright © 2019 Yonat Sharon. All rights reserved.
@@ -68,5 +67,19 @@ class SwiftTests: XCTestCase {
         let optionalStepper: UIStepper? = UIStepper()
         optionalStepper?.value = 42
         XCTAssertEqual(optionalStepper?.value, 42)
+    }
+
+    func testAssignIfNotNil() {
+        var value = 1
+        value =? nil
+        XCTAssertEqual(value, 1)
+        value =? 2
+        XCTAssertEqual(value, 2)
+
+        var optionalValue: Int? = 3
+        optionalValue =? Int??.none
+        XCTAssertEqual(optionalValue, 3)
+        optionalValue =? Int??.some(nil)
+        XCTAssertNil(optionalValue)
     }
 }

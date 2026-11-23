@@ -59,3 +59,5 @@ extension TestDecodableStruct {
         self.init(number: 42, string: "Override Sweeter init")
     }
 }
+
+// swiftlint:enable no_magic_numbers

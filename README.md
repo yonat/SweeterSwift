@@ -2,7 +2,6 @@
 <img align="right" src="Screenshots/SweeterSwift.png">
 
 [![Swift Version][swift-image]][swift-url]
-[![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SweeterSwift.svg)](https://img.shields.io/cocoapods/v/SweeterSwift.svg)  
 [![Platform](https://img.shields.io/cocoapods/p/SweeterSwift.svg?style=flat)](http://cocoapods.org/pods/SweeterSwift)
@@ -112,7 +111,7 @@ notify(notificationName, userInfo: infoDictionary)
 Respond to a local notification from `NotificationCenter.default`:
 
 ```swift
-observeNotification(notificationName, selector: #selector(someFunc))
+observeNotification(name: notificationName, selector: #selector(someFunc))
 ```
 
 ### NSAttributedString
@@ -226,7 +225,7 @@ stackView.removeAllArrangedSubviewsCompletely()
 Search the view hierarchy recursively for a subview that meets a condition:
 
 ```swift
-let blueSubview = view.viewInHierarchy(where { $0.backgroundColor == .blue })
+let blueSubview = view.viewInHierarchy(where: { $0.backgroundColor == .blue })
 ```
 
 Search the view hierarchy recursively for a subview with a specific class:
@@ -246,5 +245,3 @@ let button = view.viewWithClass(UIButton.self)
 [swift-url]: https://swift.org/
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
 [license-url]: LICENSE.txt
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
