@@ -21,7 +21,7 @@ pod 'SweeterSwift'
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yonat/SweeterSwift", from: "1.2.6")
+    .package(url: "https://github.com/yonat/SweeterSwift", from: "1.3.0")
 ]
 ```
 

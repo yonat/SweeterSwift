@@ -1,13 +1,14 @@
 Pod::Spec.new do |s|
 
   s.name         = "SweeterSwift"
-  s.version      = "1.2.6"
+  s.version      = "1.3.0"
   s.summary      = "Extensions and syntactic sugar to enrich the Swift standard library, iOS frameworks, and SwifterSwift."
 
   s.homepage     = "https://github.com/yonat/SweeterSwift"
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
   s.author             = { "Yonat Sharon" => "yonat@ootips.org" }
 
+  s.swift_versions = ["5.0"]
   s.platform     = :ios, "15.0"
   s.requires_arc = true
 
